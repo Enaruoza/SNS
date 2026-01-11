@@ -29,8 +29,8 @@ body {
   --color-brand-cream: #FFFBF0;
   --color-brand-black: #121212;
 
-  --font-heading-family: var(--font-heading--family);
-  --font-body-family: var(--font-body--family);
+  --font-heading-family: var(--font-heading--family, 'Fredoka', cursive);
+  --font-body-family: var(--font-body--family, 'Outfit', sans-serif);
 
   --pop-border-width: 3px;
   --pop-shadow-offset: 4px;
