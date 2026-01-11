@@ -6,7 +6,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Comic Burst Settings"
+      "content": "Comic Burst Background"
     },
     {
       "type": "color",
@@ -28,55 +28,7 @@
     },
     {
       "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "text",
-      "id": "heading_left",
-      "label": "Left Text (Sugar)",
-      "default": "SUGAR"
-    },
-    {
-      "type": "text",
-      "id": "heading_right",
-      "label": "Right Text (Spice)",
-      "default": "SPICE"
-    },
-    {
-      "type": "text",
-      "id": "tagline",
-      "label": "Tagline",
-      "default": "AND ALL THINGS NICE"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Center Image (Transparent PNG)"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "ORDER NOW"
-    },
-    {
-      "type": "range",
-      "id": "image_size",
-      "min": 20,
-      "max": 120,
-      "step": 5,
-      "unit": "%",
-      "label": "Center Image Size",
-      "default": 100
-    },
-    {
-      "type": "header",
-      "content": "Desktop Layout"
+      "content": "Layout"
     },
     {
       "type": "select",
@@ -91,20 +43,6 @@
       "default": "100vh"
     },
     {
-      "type": "range",
-      "id": "title_size_desktop",
-      "min": 5,
-      "max": 30,
-      "step": 1,
-      "unit": "vw",
-      "label": "Title Size",
-      "default": 22
-    },
-    {
-      "type": "header",
-      "content": "Mobile Layout"
-    },
-    {
       "type": "select",
       "id": "mobile_height",
       "label": "Mobile Height",
@@ -117,76 +55,251 @@
       "default": "90vh"
     },
     {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Optional Center Image (PNG)"
+    },
+    {
       "type": "range",
-      "id": "title_size_mobile",
-      "min": 10,
-      "max": 50,
-      "step": 1,
-      "unit": "vw",
-      "label": "Mobile Title Size",
-      "default": 32
+      "id": "image_size",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "%",
+      "label": "Center Image Size",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Comic Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "SUGAR"
+        },
+        {
+          "type": "range",
+          "id": "size_desktop",
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "unit": "vw",
+          "label": "Size (Desktop)",
+          "default": 15
+        },
+        {
+          "type": "range",
+          "id": "size_mobile",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "vw",
+          "label": "Size (Mobile)",
+          "default": 25
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "shadow_color",
+          "label": "Shadow Color",
+          "default": "#121212"
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "min": -20,
+          "max": 20,
+          "step": 1,
+          "unit": "deg",
+          "label": "Rotation",
+          "default": -5
+        }
+      ]
+    },
+    {
+      "type": "tagline",
+      "name": "Comic Tagline",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "AND ALL THINGS NICE"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "stroke_color",
+          "label": "Stroke/Shadow Color",
+          "default": "#121212"
+        },
+        {
+          "type": "range",
+          "id": "size_desktop",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "unit": "rem",
+          "label": "Size (Desktop)",
+          "default": 2.5
+        },
+        {
+          "type": "range",
+          "id": "size_mobile",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "unit": "rem",
+          "label": "Size (Mobile)",
+          "default": 1.5
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Comic Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "ORDER NOW"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#121212"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": [
+        {
+          "type": "range",
+          "id": "height",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "label": "Height",
+          "default": 20
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "SNS - Hero Splash"
+      "name": "SNS - Hero Splash",
+      "blocks": [
+        { "type": "heading", "settings": { "text": "SUGAR", "rotation": -5 } },
+        { "type": "tagline", "settings": { "text": "AND ALL THINGS NICE" } },
+        { "type": "heading", "settings": { "text": "SPICE", "rotation": 5, "text_color": "#FFC72C" } },
+        { "type": "button" }
+      ]
     }
   ]
 }
 {% endschema %}
 
-<div class="hero-comic-burst" style="--burst-left: {{ section.settings.burst_color_left }}; --burst-right: {{ section.settings.burst_color_right }}; height: {{ section.settings.desktop_height }};">
+<div class="hero-comic-burst" 
+     style="--burst-left: {{ section.settings.burst_color_left }}; --burst-right: {{ section.settings.burst_color_right }}; 
+            --desktop-height: {{ section.settings.desktop_height }}; --mobile-height: {{ section.settings.mobile_height }};">
   
   <!-- Halftone Pattern Overlay -->
   <div class="hero-comic__pattern"></div>
 
-  <!-- Background Split (Jagged Clip Path) -->
+  <!-- Background Split -->
   <div class="hero-comic__bg-left"></div>
   <div class="hero-comic__bg-right"></div>
 
   <!-- Content Container -->
-  <div class="hero-comic__content">
-    
-    <!-- Left Text Group -->
-    <div class="hero-comic__text-group hero-comic__text-group--left">
-      <h2 class="hero-comic__title comic-3d-text" style="--text-color: #FFF; font-size: {{ section.settings.title_size_desktop }}vw;">
-        {{ section.settings.heading_left }}
-      </h2>
+  <div class="hero-comic__content-wrapper">
+    <div class="hero-comic__blocks">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
+              <h2 class="comic-3d-text" 
+                  style="--text-color: {{ block.settings.text_color }}; --shadow-color: {{ block.settings.shadow_color }}; 
+                         --font-size-desktop: {{ block.settings.size_desktop }}vw; 
+                         --font-size-mobile: {{ block.settings.size_mobile }}vw;
+                         --rotation: {{ block.settings.rotation }}deg;">
+                {{ block.settings.text }}
+              </h2>
+            </div>
+
+          {%- when 'tagline' -%}
+            <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
+              <p class="comic-stroke-text" 
+                 style="--text-color: {{ block.settings.text_color }}; --stroke-color: {{ block.settings.stroke_color }};
+                        --font-size-desktop: {{ block.settings.size_desktop }}rem;
+                        --font-size-mobile: {{ block.settings.size_mobile }}rem;">
+                {{ block.settings.text }}
+              </p>
+            </div>
+
+          {%- when 'button' -%}
+            <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
+              {% if block.settings.link %}
+                <a href="{{ block.settings.link }}" class="hero-comic__button box-pop" 
+                   style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+                  {{ block.settings.label }}
+                </a>
+              {% else %}
+                 <span class="hero-comic__button box-pop" 
+                   style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+                  {{ block.settings.label }}
+                </span>
+              {% endif %}
+            </div>
+
+          {%- when 'spacer' -%}
+            <div class="hero-comic__spacer" style="height: {{ block.settings.height }}px;" {{ block.shopify_attributes }}></div>
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
 
-    <!-- Right Text Group -->
-    <div class="hero-comic__text-group hero-comic__text-group--right">
-      <h2 class="hero-comic__title comic-3d-text" style="--text-color: var(--color-brand-yellow); font-size: {{ section.settings.title_size_desktop }}vw;">
-        {{ section.settings.heading_right }}
-      </h2>
-    </div>
-
-    <!-- Center Element (Image + Tagline + Button) -->
-    <div class="hero-comic__center">
-      <div class="hero-comic__tagline-wrapper">
-        <p class="hero-comic__tagline comic-stroke-text">{{ section.settings.tagline }}</p>
+    <!-- Optional Center Image Overlay -->
+    {% if section.settings.center_image %}
+      <div class="hero-comic__image-overlay" style="width: {{ section.settings.image_size }}%;">
+        <img
+          src="{{ section.settings.center_image | image_url: width: 1200 }}"
+          alt="Hero Decoration"
+          class="hero-comic__image"
+          width="1000"
+          height="1000"
+          loading="eager"
+        >
       </div>
-
-      {% if section.settings.image %}
-        <div class="hero-comic__image-container" style="width: {{ section.settings.image_size }}%;">
-          <img
-            src="{{ section.settings.image | image_url: width: 1200 }}"
-            alt="{{ section.settings.heading_left }} {{ section.settings.heading_right }}"
-            class="hero-comic__image box-pop"
-            width="1000"
-            height="1000"
-            loading="eager"
-          >
-        </div>
-      {% endif %}
-
-      {% if section.settings.button_link %}
-        <a href="{{ section.settings.button_link }}" class="hero-comic__button box-pop box-pop--pink">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
-    </div>
-
+    {% endif %}
   </div>
 
   <!-- Floating Decor (Pure CSS/SVG Shapes) -->
@@ -212,156 +325,127 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-brand-black); /* Fallback */
+    height: var(--desktop-height);
+    background-color: var(--burst-right); /* Corrected sync */
   }
 
   /* --- Backgrounds --- */
-  .hero-comic__bg-left,
-  .hero-comic__bg-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 0;
-  }
-
   .hero-comic__bg-left {
-    left: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: 1;
     background-color: var(--burst-left);
-    /* Jagged Lighting Bolt Split */
     clip-path: polygon(0 0, 60% 0, 45% 40%, 55% 100%, 0 100%);
   }
 
   .hero-comic__bg-right {
-    right: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: 0;
     background-color: var(--burst-right);
-    /* Inverse Split (Background allows for easy layering, but we can just fill the back 
-       and let left sit on top. But for dual gradients, let's just fill right fully behind) */
-    background: var(--burst-right);
-    z-index: -1;
   }
 
   .hero-comic__pattern {
     position: absolute;
     inset: 0;
-    z-index: 1;
-    background-image: radial-gradient(var(--color-brand-black) 20%, transparent 20%),
-                      radial-gradient(var(--color-brand-black) 20%, transparent 20%);
-    background-color: transparent;
-    background-position: 0 0, 10px 10px;
+    z-index: 2;
+    background-image: radial-gradient(rgba(0,0,0,0.15) 20%, transparent 20%);
     background-size: 20px 20px;
-    opacity: 0.1;
     pointer-events: none;
   }
 
-  /* --- Content Layout --- */
-  .hero-comic__content {
+  /* --- Blocks Content --- */
+  .hero-comic__content-wrapper {
     position: relative;
-    z-index: 5;
+    z-index: 10;
     width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 1400px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  .hero-comic__text-group {
-    padding: 2rem;
+  .hero-comic__blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-comic__block-item {
+    width: 100%;
     display: flex;
     justify-content: center;
   }
-  
-  .hero-comic__text-group--left { padding-left: 5vw; justify-content: flex-end; }
-  .hero-comic__text-group--right { padding-right: 5vw; justify-content: flex-start; }
 
-  /* --- 3D Comic Typography --- */
+  /* --- Block Styles --- */
   .comic-3d-text {
     font-family: var(--font-heading-family);
     margin: 0;
-    line-height: 0.8;
-    transform: rotate(-5deg);
+    line-height: 0.9;
+    transform: rotate(var(--rotation));
     color: var(--text-color);
-    /* Layered 3D Effect */
-    -webkit-text-stroke: 4px var(--color-brand-black);
+    font-size: var(--font-size-desktop);
+    -webkit-text-stroke: 3px var(--shadow-color);
     text-shadow: 
-      4px 4px 0 var(--color-brand-black),
-      8px 8px 0 rgba(0,0,0,0.2);
-    /* Filter for that extra punch */
-    filter: drop-shadow(5px 5px 0px rgba(0,0,0,1));
-  }
-
-  .hero-comic__tagline-wrapper {
-    position: absolute;
-    top: 45%; 
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    width: 100%;
-    text-align: center;
-    z-index: 12;
-    pointer-events: none;
+      4px 4px 0 var(--shadow-color),
+      8px 8px 0 rgba(0,0,0,0.1);
+    filter: drop-shadow(4px 4px 0px var(--shadow-color));
   }
 
   .comic-stroke-text {
     font-family: var(--font-heading-family);
-    font-size: 2.5rem;
-    color: white;
+    font-size: var(--font-size-desktop);
+    color: var(--text-color);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    -webkit-text-stroke: 2px var(--color-brand-black);
-    text-shadow: 4px 4px 0 var(--color-brand-black);
+    margin: 0;
+    line-height: 1;
+    -webkit-text-stroke: 2px var(--stroke-color);
+    text-shadow: 4px 4px 0 var(--stroke-color);
     font-weight: 900;
   }
 
-  /* --- Center Elements --- */
-  .hero-comic__center {
+  .hero-comic__button {
+    font-family: var(--font-heading-family);
+    padding: 1.5rem 4rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    border: 3px solid var(--color-brand-black);
+    cursor: pointer;
+    box-shadow: 6px 6px 0 var(--color-brand-black);
+    transition: transform 0.2s;
+    z-index: 20;
+    pointer-events: auto;
+  }
+
+  .hero-comic__button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--color-brand-black);
+  }
+
+  /* --- Image Overlay --- */
+  .hero-comic__image-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%; 
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
-    pointer-events: none; /* Let clicks pass through to potential links, button overrides this */
-  }
-
-  .hero-comic__image-container {
-    position: relative;
-    transition: transform 0.3s ease;
+    pointer-events: none;
+    z-index: 5; /* Behind blocks but above background */
+    opacity: 0.8;
   }
 
   .hero-comic__image {
     width: 100%;
     height: auto;
-    transform: rotate(5deg);
-    border: 4px solid var(--color-brand-black);
-    border-radius: 50%;
-    background: #fff; /* Ensure transparent PNGs pop */
-    box-shadow: 10px 10px 0 var(--color-brand-black);
-  }
-
-  .hero-comic__button {
-    pointer-events: auto;
-    margin-top: -20px;
-    z-index: 20;
-    font-size: 2rem;
-    padding: 1rem 3rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: var(--font-heading-family);
-    display: inline-block;
-    background: #fff;
-    color: var(--color-brand-black);
-    border: 3px solid var(--color-brand-black);
-    box-shadow: 6px 6px 0 var(--color-brand-black);
-    transition: transform 0.2s;
-  }
-
-  .hero-comic__button:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0 var(--color-brand-black);
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
   }
 
   /* --- Decor --- */
@@ -369,80 +453,67 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    overflow: hidden;
+    z-index: 3;
   }
 
   .decor-star {
     position: absolute;
     color: var(--color-brand-yellow);
-    font-size: 4rem;
+    font-size: 3rem;
     -webkit-text-stroke: 2px black;
-    font-weight: bold;
     animation: pulse 3s infinite ease-in-out;
-    text-shadow: 3px 3px 0 black;
+    text-shadow: 2px 2px 0 black;
   }
 
   .decor-bolt {
     position: absolute;
-    font-size: 6rem;
-    color: var(--color-brand-black);
+    font-size: 4rem;
+    color: black;
     transform: rotate(20deg);
-    font-weight: 900;
-    text-shadow: 3px 3px 0 rgba(255,255,255,0.5);
-  }
-
-  .decor-circle {
-    position: absolute;
-    width: 20px; 
-    height: 20px;
-    border: 2px solid black;
-    border-radius: 50%;
   }
 
   @keyframes pulse {
     0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.2) rotate(10deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
   }
 
-  /* --- Mobile --- */
+  /* --- Mobile Layout (Better Dog Shit Prevention) --- */
   @media (max-width: 768px) {
     .hero-comic-burst {
-      height: {{ section.settings.mobile_height }} !important;
-      flex-direction: column;
+      height: var(--mobile-height);
     }
 
-    .hero-comic__background-left {
-      /* Adjust clip path for vertical split if desired, or keep jagged diagonal */
-      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%);
+    .hero-comic__bg-left {
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%, 0 100%);
     }
 
-    .hero-comic__content {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr auto 1fr;
+    .hero-comic__content-wrapper {
+      padding: 1rem;
     }
 
-    .hero-comic__text-group {
-      justify-content: center;
-      padding: 0;
+    .hero-comic__blocks {
+      gap: 1.5rem; /* More breathing room on mobile */
     }
-
-    /* Stack the text vertically */
-    .hero-comic__text-group--left { align-items: flex-end; padding-bottom: 2rem; }
-    .hero-comic__text-group--right { align-items: flex-start; padding-top: 2rem; }
 
     .comic-3d-text {
-      font-size: {{ section.settings.title_size_mobile }}vw !important;
-      line-height: 1;
+      font-size: var(--font-size-mobile);
+      -webkit-text-stroke: 2px var(--shadow-color);
+      text-shadow: 3px 3px 0 var(--shadow-color);
     }
 
-    .hero-comic__center {
-      position: absolute;
-      width: 100%;
-      top: 50%;
+    .comic-stroke-text {
+      font-size: var(--font-size-mobile);
+      -webkit-text-stroke: 1px var(--stroke-color);
     }
 
-    .hero-comic__image-container {
-      width: 60% !important; 
+    .hero-comic__button {
+      padding: 1.2rem 3rem;
+      font-size: 1.5rem;
+    }
+
+    .hero-comic__image-overlay {
+      width: 80% !important;
+      opacity: 0.5;
     }
   }
 </style>
