@@ -311,6 +311,9 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
+            {% style %}
+              {{ block.settings.font | font_face: font_display: 'swap' }}
+            {% endstyle %}
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               <h2 class="comic-3d-text" 
                   style="
@@ -326,6 +329,9 @@
             </div>
 
           {%- when 'tagline' -%}
+            {% style %}
+              {{ block.settings.font | font_face: font_display: 'swap' }}
+            {% endstyle %}
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               <p class="comic-stroke-text" 
                  style="
@@ -340,6 +346,9 @@
             </div>
 
           {%- when 'button' -%}
+            {% style %}
+              {{ block.settings.font | font_face: font_display: 'swap' }}
+            {% endstyle %}
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               {% if block.settings.link %}
                 <a href="{{ block.settings.link }}" class="hero-comic__button box-pop" 
