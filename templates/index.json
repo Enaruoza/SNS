@@ -287,6 +287,7 @@
         },
         "tagline_BaTKFL": {
           "type": "tagline",
+          "disabled": true,
           "settings": {
             "text": "AND ALL THINGS NICE",
             "font": "sans_serif_n4",
