@@ -311,7 +311,7 @@
       ],
       "name": "SNS - Hero Splash",
       "settings": {
-        "burst_color_left": "#e63e6d",
+        "burst_color_left": "#ffffff",
         "burst_color_right": "#ffc72c",
         "scatter_icons": true,
         "desktop_height": "100vh",
