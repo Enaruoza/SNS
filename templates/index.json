@@ -9,150 +9,31 @@
  */
 {
   "sections": {
-    "hero_splash_6MreJb": {
+    "hero_splash_76aNQp": {
       "type": "hero-splash",
-      "name": "Hero Splash",
+      "name": "SNS - Hero Splash",
       "settings": {
         "heading_sugar": "SUGAR",
         "heading_spice": "SPICE",
         "tagline": "AND ALL THINGS NICE",
         "button_link": "",
         "button_label": "Order Now",
+        "image_size": 40,
         "title_size_desktop": 15,
-        "title_size_mobile": 25,
-        "image_size": 25
+        "section_height_desktop": 90,
+        "title_size_mobile": 18,
+        "section_height_mobile": 80
       }
     },
-    "story_marquee_VkHByM": {
-      "type": "story-marquee",
-      "blocks": {
-        "text_4kyDBd": {
-          "type": "text",
-          "settings": {
-            "message": "SUGAR & SPICE"
-          }
-        },
-        "text_Pf7h4B": {
-          "type": "text",
-          "settings": {
-            "message": "ALL THINGS NICE"
-          }
-        },
-        "text_rpKKx8": {
-          "type": "text",
-          "settings": {
-            "message": "LEVANTINE LOVE"
-          }
-        }
-      },
-      "block_order": [
-        "text_4kyDBd",
-        "text_Pf7h4B",
-        "text_rpKKx8"
-      ],
-      "name": "Story Marquee",
+    "text_banner_rwyE8r": {
+      "type": "text-banner",
+      "name": "SNS - Text Banner",
       "settings": {
-        "background_color": "#E63E6D",
-        "text_color": "#FFFBF0",
-        "speed": 30,
-        "font_size": 3,
-        "icon_width": 50
-      }
-    },
-    "product_showcase_rLbRbT": {
-      "type": "product-showcase",
-      "blocks": {
-        "product_item_nPf74B": {
-          "type": "product_item",
-          "settings": {
-            "name": "Spiced Hummus",
-            "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
-          }
-        },
-        "product_item_FM4wFf": {
-          "type": "product_item",
-          "settings": {
-            "name": "Spiced Hummus",
-            "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
-          }
-        },
-        "product_item_jHKxTA": {
-          "type": "product_item",
-          "settings": {
-            "name": "Spiced Hummus",
-            "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
-          }
-        },
-        "product_item_jdKfB8": {
-          "type": "product_item",
-          "settings": {
-            "name": "Spiced Hummus",
-            "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
-          }
-        }
-      },
-      "block_order": [
-        "product_item_nPf74B",
-        "product_item_FM4wFf",
-        "product_item_jHKxTA",
-        "product_item_jdKfB8"
-      ],
-      "name": "Product Showcase",
-      "settings": {
-        "title": "Available Treats",
-        "min_column_width": 280
-      }
-    },
-    "feature_split_k8Vf4x": {
-      "type": "feature-split",
-      "name": "SNS - Feature Split",
-      "settings": {
-        "layout": "left",
-        "title": "Our Story",
-        "content": "<p>Tell your brand story here.</p>",
-        "button_label": "Learn More",
-        "button_link": "",
-        "bg_color": "#FFFFFF"
-      }
-    },
-    "icon_columns_QCN6hy": {
-      "type": "icon-columns",
-      "blocks": {
-        "column_4CDczF": {
-          "type": "column",
-          "settings": {
-            "title": "Fresh Ingredients",
-            "text": "<p>Only the best for you.</p>"
-          }
-        },
-        "column_RpwJ9w": {
-          "type": "column",
-          "settings": {
-            "title": "Fresh Ingredients",
-            "text": "<p>Only the best for you.</p>"
-          }
-        },
-        "column_6Yn3xf": {
-          "type": "column",
-          "settings": {
-            "title": "Fresh Ingredients",
-            "text": "<p>Only the best for you.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "column_4CDczF",
-        "column_RpwJ9w",
-        "column_6Yn3xf"
-      ],
-      "name": "SNS - Icon Columns",
-      "settings": {
-        "title": "Why We Rock",
-        "bg_color": "#FFFBF0"
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "title": "Taste the Magic",
+        "text": "Authentic flavors, modern vibes.",
+        "link": ""
       }
     },
     "product_list_fa6P9H": {
@@ -352,11 +233,8 @@
     }
   },
   "order": [
-    "hero_splash_6MreJb",
-    "story_marquee_VkHByM",
-    "product_showcase_rLbRbT",
-    "feature_split_k8Vf4x",
-    "icon_columns_QCN6hy",
+    "hero_splash_76aNQp",
+    "text_banner_rwyE8r",
     "product_list_fa6P9H"
   ]
 }

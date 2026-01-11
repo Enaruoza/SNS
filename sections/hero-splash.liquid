@@ -39,52 +39,18 @@
       "default": "Order Now"
     },
     {
-      "type": "select",
-      "id": "desktop_height",
-      "label": "Desktop Height",
-      "options": [
-        { "value": "450px", "label": "Small" },
-        { "value": "550px", "label": "Medium" },
-        { "value": "650px", "label": "Large" },
-        { "value": "100vh", "label": "Full Screen" }
-      ],
-      "default": "650px"
-    },
-    {
-      "type": "select",
-      "id": "mobile_height",
-      "label": "Mobile Height",
-      "options": [
-        { "value": "300px", "label": "Small" },
-        { "value": "400px", "label": "Medium" },
-        { "value": "500px", "label": "Large" },
-        { "value": "80vh", "label": "Full Screen" }
-      ],
-      "default": "400px"
-    },
-    {
       "type": "range",
-      "id": "padding_top",
-      "min": 0,
+      "id": "image_size",
+      "min": 20,
       "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Top Padding",
-      "default": 36
+      "step": 5,
+      "unit": "%",
+      "label": "Center Image Size",
+      "default": 40
     },
     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "Bottom Padding",
-      "default": 36
-    },
-    {
-       "type": "header",
-       "content": "Typography"
+      "type": "header",
+      "content": "Desktop Layout"
     },
     {
       "type": "range",
@@ -96,7 +62,39 @@
       "label": "Title Size",
       "default": 15
     },
+    {
+      "type": "range",
+      "id": "section_height_desktop",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Section Height",
+      "default": 90
+    },
+    {
+      "type": "header",
+      "content": "Mobile Layout"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "vw",
+      "label": "Mobile Title Size",
       "default": 18
+    },
+    {
+      "type": "range",
+      "id": "section_height_mobile",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Mobile Section Height",
+      "default": 80
     }
   ],
   "presets": [
@@ -107,7 +105,7 @@
 }
 {% endschema %}
 
-<div class="hero-splash section-content-wrapper" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+<div class="hero-splash section-content-wrapper">
   <div class="hero-splash__split hero-splash__left bg-halftone">
     <h1 class="hero-splash__title font-heading" style="color: var(--color-brand-pink)">
       {{ section.settings.heading_sugar }}
@@ -148,7 +146,7 @@
 <style>
   .hero-splash {
     display: flex;
-    height: {{ section.settings.desktop_height }};
+    height: {{ section.settings.section_height_desktop }}vh;
     position: relative;
     overflow: hidden;
     width: 100vw;
@@ -161,6 +159,17 @@
     transition: flex 0.5s ease;
   }
 
+<<<<<<< HEAD
+=======
+  .hero-splash__split {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: flex 0.5s ease;
+  }
+
+>>>>>>> 9da46e09b316a072333c47d9cf1fa966504c7074
   .hero-splash__title {
     font-size: {{ section.settings.title_size_desktop }}vw;
     line-height: 0.8;
@@ -223,11 +232,10 @@
 
     .hero-splash {
       flex-direction: column;
-      height: {{ section.settings.mobile_height }};
+      height: {{ section.settings.section_height_mobile }}vh;
       margin-left: 0;
       width: 100%;
     }
-
     .hero-splash__title {
       font-size: {{ section.settings.title_size_mobile }}vw;
       white-space: normal;
