@@ -79,7 +79,7 @@
 }
 {% endschema %}
 
-<div class="story-marquee border-y" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; transform: rotate({{ section.settings.rotation }}deg); width: 99.5vw; margin-left: calc(50% - 50vw);">
+<div class="story-marquee border-y" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; transform: rotate({{ section.settings.rotation }}deg); width: 105%; margin-left: -2.5%;">
   <div class="story-marquee__content" style="animation-duration: {{ section.settings.speed }}s">
     <!-- Duplicate content 4 times to ensure smooth infinite loop on wide screens -->
     {% for i in (1..4) %}

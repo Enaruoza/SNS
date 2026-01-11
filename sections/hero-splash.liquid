@@ -40,53 +40,8 @@
     },
     {
       "type": "header",
-      "content": "Desktop Layout"
+      "content": "Style Overrides"
     },
-    {
-      "type": "range",
-      "id": "title_size_desktop",
-      "min": 5,
-      "max": 30,
-      "step": 1,
-      "unit": "vw",
-      "label": "Title Size",
-      "default": 15
-    },
-    {
-      "type": "range",
-      "id": "section_height_desktop",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "unit": "vh",
-      "label": "Section Height",
-      "default": 90
-    },
-    {
-      "type": "header",
-      "content": "Mobile Layout"
-    },
-    {
-      "type": "range",
-      "id": "title_size_mobile",
-      "min": 10,
-      "max": 30,
-      "step": 1,
-      "unit": "vw",
-      "label": "Mobile Title Size",
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "section_height_mobile",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "unit": "vh",
-      "label": "Mobile Section Height",
-      "default": 80
-    }
-  ],
     {
       "type": "range",
       "id": "title_size_desktop",
@@ -167,11 +122,9 @@
 <style>
   .hero-splash {
     display: flex;
-    height: {{ section.settings.section_height_desktop }}vh; /* Full screen impact */
+    height: 90vh; /* Full screen impact */
     position: relative;
     overflow: hidden;
-    width: 100vw;
-    margin-left: calc(50% - 50vw); /* Force Full Width Breakout */
   }
 
   .hero-splash__split {
@@ -236,7 +189,6 @@
   @media (max-width: 768px) {
     .hero-splash {
       flex-direction: column;
-      height: {{ section.settings.section_height_mobile }}vh;
     }
     .hero-splash__title {
       font-size: {{ section.settings.title_size_mobile }}vw;

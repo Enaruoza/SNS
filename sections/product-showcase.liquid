@@ -11,37 +11,14 @@
       "default": "Available Treats"
     },
     {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Make Section Full Width",
-      "default": false
-    },
-    {
-      "type": "header",
-      "content": "Desktop Settings"
-    },
-    {
       "type": "range",
-      "id": "columns_desktop",
-      "min": 2,
-      "max": 5,
-      "step": 1,
-      "label": "Columns per row",
-      "default": 4
-    },
-    {
-      "type": "header",
-      "content": "Mobile Settings"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "label": "Mobile Layout",
-      "options": [
-        { "value": "1", "label": "1 Column (Big Cards)" },
-        { "value": "2", "label": "2 Columns (Compact)" }
-      ],
-      "default": "2"
+      "id": "min_column_width",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Minimum Card Width",
+      "default": 280
     }
   ],
   "blocks": [
@@ -83,7 +60,7 @@
 }
 {% endschema %}
 
-<div class="product-showcase-wrapper {% unless section.settings.full_width %}page-width{% endunless %} section-content-wrapper">
+<div class="section-content-wrapper page-width">
   <h2 class="font-heading text-center text-pop-outline" style="font-size: 3rem; margin-bottom: 2rem; color: var(--color-brand-pink);">
     {{ section.settings.title }}
   </h2>
@@ -111,10 +88,10 @@
 <style>
   .product-grid {
     display: grid;
-    /* Desktop default */
-    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax({{ section.settings.min_column_width }}px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
+    justify-content: center; /* Center items if they don't fill the row */
   }
 
   .product-card-pop {
@@ -164,18 +141,5 @@
   .product-card-pop__btn:hover {
     transform: scale(1.1);
     background: var(--color-brand-red);
-  }
-  @media (max-width: 768px) {
-    .product-grid {
-      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
-      gap: 1rem;
-    }
-    .product-card-pop {
-      padding: 1rem; /* Compact padding on mobile */
-    }
-    .product-card-pop__btn {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
   }
 </style>
