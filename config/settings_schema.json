@@ -11,6 +11,27 @@
     "name": "t:names.logo_and_favicon",
     "settings": [
       {
+        "type": "header",
+        "content": "Sugar & Spice - Brand Loader"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand_loader_logo",
+        "label": "Loader Logo (SVG/PNG)",
+        "info": "Upload your vector logo here to replace the default ampersand."
+      },
+      {
+        "type": "range",
+        "id": "brand_loader_width",
+        "min": 50,
+        "max": 300,
+        "step": 10,
+        "unit": "px",
+        "label": "Loader Logo Width",
+        "default": 150
+      },
+
+      {
         "type": "paragraph",
         "content": "t:content.manage_store_name"
       },
