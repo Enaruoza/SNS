@@ -9,33 +9,6 @@
  */
 {
   "sections": {
-    "hero_splash_76aNQp": {
-      "type": "hero-splash",
-      "name": "SNS - Hero Splash",
-      "settings": {
-        "heading_sugar": "SUGAR",
-        "heading_spice": "SPICE",
-        "tagline": "AND ALL THINGS NICE",
-        "button_link": "",
-        "button_label": "Order Now",
-        "image_size": 40,
-        "title_size_desktop": 15,
-        "section_height_desktop": 90,
-        "title_size_mobile": 18,
-        "section_height_mobile": 80
-      }
-    },
-    "text_banner_rwyE8r": {
-      "type": "text-banner",
-      "name": "SNS - Text Banner",
-      "settings": {
-        "overlay_color": "#000000",
-        "overlay_opacity": 30,
-        "title": "Taste the Magic",
-        "text": "Authentic flavors, modern vibes.",
-        "link": ""
-      }
-    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -230,11 +203,329 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "intro_splash_cpMXdU": {
+      "type": "intro-splash",
+      "name": "SNS - Intro Splash",
+      "settings": {
+        "enable_splash": true,
+        "logo_width": 200,
+        "bg_color": "#ffc72c",
+        "duration": 0.5,
+        "animation_type": "curtain"
+      }
+    },
+    "hero_splash_DBd7jR": {
+      "type": "hero-splash",
+      "blocks": {
+        "heading_pnUGRw": {
+          "type": "heading",
+          "settings": {
+            "text": "SUGAR",
+            "font": "anton_n4",
+            "size_desktop": 15,
+            "size_mobile": 25,
+            "text_color": "#ffffff",
+            "shadow_color": "#e63e6d",
+            "rotation": 6
+          }
+        },
+        "spacer_FqcyVc": {
+          "type": "spacer",
+          "settings": {
+            "height": 20
+          }
+        },
+        "spacer_Unikqj": {
+          "type": "spacer",
+          "settings": {
+            "height": 20
+          }
+        },
+        "spacer_YdCGhh": {
+          "type": "spacer",
+          "settings": {
+            "height": 20
+          }
+        },
+        "heading_hmadEi": {
+          "type": "heading",
+          "settings": {
+            "text": "SPICE",
+            "font": "almarai_n4",
+            "size_desktop": 15,
+            "size_mobile": 25,
+            "text_color": "#ffffff",
+            "shadow_color": "#ffc72c",
+            "rotation": -5
+          }
+        },
+        "spacer_EfLVwn": {
+          "type": "spacer",
+          "settings": {
+            "height": 20
+          }
+        },
+        "spacer_yhDBgw": {
+          "type": "spacer",
+          "settings": {
+            "height": 20
+          }
+        },
+        "tagline_BaTKFL": {
+          "type": "tagline",
+          "settings": {
+            "text": "AND ALL THINGS NICE",
+            "font": "sans_serif_n4",
+            "text_color": "#ffffff",
+            "stroke_color": "#e63e6d",
+            "size_desktop": 2.5,
+            "size_mobile": 1.5
+          }
+        }
+      },
+      "block_order": [
+        "heading_pnUGRw",
+        "spacer_FqcyVc",
+        "spacer_Unikqj",
+        "spacer_YdCGhh",
+        "heading_hmadEi",
+        "spacer_EfLVwn",
+        "spacer_yhDBgw",
+        "tagline_BaTKFL"
+      ],
+      "name": "SNS - Hero Splash",
+      "settings": {
+        "burst_color_left": "#e63e6d",
+        "burst_color_right": "#ffc72c",
+        "scatter_icons": true,
+        "desktop_height": "100vh",
+        "mobile_height": "700px",
+        "image_size": 20
+      }
+    },
+    "story_marquee_NFmKjA": {
+      "type": "story-marquee",
+      "blocks": {
+        "text_wtencU": {
+          "type": "text",
+          "settings": {
+            "message": "SUGAR & SPICE"
+          }
+        },
+        "text_i9P9XU": {
+          "type": "text",
+          "settings": {
+            "message": "& ALL THINGS NICE"
+          }
+        },
+        "text_7RfznA": {
+          "type": "text",
+          "settings": {
+            "message": "SYRIAN FLAVOURS. MADE FOR BOSNIA."
+          }
+        },
+        "text_KUUFYz": {
+          "type": "text",
+          "settings": {
+            "message": "LEVANTINE LOVE"
+          }
+        }
+      },
+      "block_order": [
+        "text_wtencU",
+        "text_i9P9XU",
+        "text_7RfznA",
+        "text_KUUFYz"
+      ],
+      "name": "Story Marquee",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#ffc72c",
+        "speed": 30,
+        "marquee_font": "sans_serif_n7",
+        "font_size": 3,
+        "enable_icons": true,
+        "icon_width": 50,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "text_banner_Vtg93U": {
+      "type": "text-banner",
+      "name": "SNS - Text Banner",
+      "settings": {
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "title": "Taste the Magic",
+        "text": "Authentic flavors, modern vibes.",
+        "link": ""
+      }
+    },
+    "product_showcase_6UTtPV": {
+      "type": "product-showcase",
+      "blocks": {
+        "product_item_hTqQtk": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_rKbTDt": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_haeJxx": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_8gnPbU": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_hTqQtk",
+        "product_item_rKbTDt",
+        "product_item_haeJxx",
+        "product_item_8gnPbU"
+      ],
+      "name": "SNS - Product Showcase",
+      "settings": {
+        "title": "Available Treats",
+        "full_width": false,
+        "columns_desktop": 4,
+        "columns_mobile": "2"
+      }
+    },
+    "feature_split_U9KmKF": {
+      "type": "feature-split",
+      "name": "SNS - Feature Split",
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_10_2a7695ff-cf76-47f4-a87b-88ed5ec2d92f.png",
+        "layout": "left",
+        "title": "Our Story",
+        "content": "<p>Tell your brand story here.</p>",
+        "button_label": "Learn More",
+        "button_link": "",
+        "bg_color": "#ffffff"
+      }
+    },
+    "feature_split_tMULKa": {
+      "type": "feature-split",
+      "name": "SNS - Feature Split",
+      "settings": {
+        "image": "shopify://shop_images/Untitled_design_9.png",
+        "layout": "right",
+        "title": "Our Story",
+        "content": "<p>Tell your brand story here.</p>",
+        "button_label": "Learn More",
+        "button_link": "",
+        "bg_color": "#ffffff"
+      }
+    },
+    "icon_columns_7thAya": {
+      "type": "icon-columns",
+      "blocks": {
+        "column_RHAVGc": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        },
+        "column_xJbMbR": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        },
+        "column_jTa3k7": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_RHAVGc",
+        "column_xJbMbR",
+        "column_jTa3k7"
+      ],
+      "name": "SNS - Icon Columns",
+      "settings": {
+        "title": "Why We Rock",
+        "heading_font": "sans_serif_n7",
+        "body_font": "sans_serif_n4",
+        "bg_color": "#fffbf0"
+      }
+    },
+    "faq_RJpAdr": {
+      "type": "faq",
+      "blocks": {
+        "question_6Np4Hd": {
+          "type": "question",
+          "settings": {
+            "question": "Is it spicy?",
+            "answer": "<p>Just the right amount!</p>"
+          }
+        },
+        "question_kF63pr": {
+          "type": "question",
+          "settings": {
+            "question": "Is it spicy?",
+            "answer": "<p>Just the right amount!</p>"
+          }
+        },
+        "question_TNW4kW": {
+          "type": "question",
+          "settings": {
+            "question": "Is it spicy?",
+            "answer": "<p>Just the right amount!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_6Np4Hd",
+        "question_kF63pr",
+        "question_TNW4kW"
+      ],
+      "name": "SNS - FAQ",
+      "settings": {
+        "title": "Rarely Asked Questions",
+        "heading_font": "sans_serif_n7",
+        "body_font": "sans_serif_n4",
+        "bg_color": "#e63e6d",
+        "text_color": "#fffbf0"
+      }
     }
   },
   "order": [
-    "hero_splash_76aNQp",
-    "text_banner_rwyE8r",
-    "product_list_fa6P9H"
+    "product_list_fa6P9H",
+    "intro_splash_cpMXdU",
+    "hero_splash_DBd7jR",
+    "story_marquee_NFmKjA",
+    "text_banner_Vtg93U",
+    "product_showcase_6UTtPV",
+    "feature_split_U9KmKF",
+    "feature_split_tMULKa",
+    "icon_columns_7thAya",
+    "faq_RJpAdr"
   ]
 }
