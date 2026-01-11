@@ -1,0 +1,136 @@
+{% schema %}
+{
+  "name": "SNS - Intro Splash",
+  "tag": "section",
+  "class": "section-intro-splash",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_splash",
+      "label": "Enable Intro Splash",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 200
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFC72C"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Animation Duration",
+      "default": 2.5
+    },
+    {
+      "type": "select",
+      "id": "animation_type",
+      "label": "Exit Animation",
+      "options": [
+        { "value": "fade", "label": "Fade Out" },
+        { "value": "slide_up", "label": "Slide Up" },
+        { "value": "curtain", "label": "Curtain Split" }
+      ],
+      "default": "slide_up"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SNS - Intro Splash"
+    }
+  ]
+}
+{% endschema %}
+
+{% if section.settings.enable_splash %}
+  <div class="intro-splash" id="IntroSplash-{{ section.id }}" 
+       style="background-color: {{ section.settings.bg_color }};">
+    <div class="intro-splash__content">
+      {% if section.settings.logo %}
+        <img src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}" 
+             alt="{{ shop.name }}" 
+             class="intro-splash__logo box-pop"
+             style="width: {{ section.settings.logo_width }}px; height: auto;"
+             loading="eager">
+      {% else %}
+        <h1 class="font-heading text-pop-outline" style="font-size: 4rem; color: #fff;">{{ shop.name }}</h1>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .intro-splash {
+      position: fixed;
+      top: 0;
+      left: 0; /* Fixed from inset: 0 to specific coords for wider support */
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999; /* Higher than everything */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.6s ease;
+    }
+
+    .intro-splash__content {
+      animation: pulse-logo 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse-logo {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Animation States */
+    .intro-splash.is-hidden {
+      pointer-events: none;
+    }
+    
+    .intro-splash.anim-fade.is-hidden {
+      opacity: 0;
+    }
+
+    .intro-splash.anim-slide_up.is-hidden {
+      transform: translateY(-100%);
+    }
+
+    .intro-splash.anim-curtain.is-hidden {
+      /* Complex curtain effect requires dual panels, sticking to simple slide for robustness */
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const splash = document.getElementById('IntroSplash-{{ section.id }}');
+      const duration = {{ section.settings.duration }} * 1000;
+      const type = '{{ section.settings.animation_type }}';
+
+      splash.classList.add('anim-' + type);
+
+      setTimeout(() => {
+        splash.classList.add('is-hidden');
+      }, duration);
+    });
+  </script>
+{% endif %}
