@@ -21,6 +21,19 @@ body {
   --hover-transition-timing: ease-out;
   --surface-transition-duration: 0.3s;
   --surface-transition-timing: var(--ease-out-quad);
+
+  /* Sugar & Spice Design Tokens */
+  --color-brand-yellow: #FFC72C;
+  --color-brand-pink: #E63E6D;
+  --color-brand-red: #FF4500;
+  --color-brand-cream: #FFFBF0;
+  --color-brand-black: #121212;
+
+  --font-heading-family: 'Fredoka', cursive;
+  --font-body-family: 'Outfit', sans-serif;
+
+  --pop-border-width: 3px;
+  --pop-shadow-offset: 4px;
 }
 
 html {

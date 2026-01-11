@@ -1,0 +1,197 @@
+{% schema %}
+{
+  "name": "Hero Splash",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_sugar",
+      "label": "Left Heading",
+      "default": "SUGAR"
+    },
+    {
+      "type": "text",
+      "id": "heading_spice",
+      "label": "Right Heading",
+      "default": "SPICE"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "AND ALL THINGS NICE"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Center Image (Transparent PNG)"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Order Now"
+    }
+    {
+      "type": "header",
+      "content": "Style Overrides"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "vw",
+      "label": "Title Size (Desktop)",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "unit": "vw",
+      "label": "Title Size (Mobile)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Center Image Size",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Splash"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="hero-splash section-content-wrapper">
+  <div class="hero-splash__split hero-splash__left bg-halftone">
+    <h1 class="hero-splash__title font-heading" style="color: var(--color-brand-pink)">
+      {{ section.settings.heading_sugar }}
+    </h1>
+  </div>
+
+  <div class="hero-splash__center">
+    {% if section.settings.image %}
+      <div class="hero-splash__image-wrapper">
+        <img
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.heading_sugar }} & {{ section.settings.heading_spice }}"
+          class="hero-splash__image box-pop"
+          width="800"
+          height="800"
+          loading="eager"
+        >
+      </div>
+    {% endif %}
+    
+    <div class="hero-splash__actions">
+      <p class="hero-splash__tagline font-body text-pop-outline">{{ section.settings.tagline }}</p>
+      {% if section.settings.button_link %}
+        <a href="{{ section.settings.button_link }}" class="hero-splash__button font-heading box-pop box-pop--pink">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="hero-splash__split hero-splash__right" style="background-color: var(--color-brand-cream)">
+    <h1 class="hero-splash__title font-heading" style="color: var(--color-brand-yellow); -webkit-text-stroke: 4px var(--color-brand-black);">
+      {{ section.settings.heading_spice }}
+    </h1>
+  </div>
+</div>
+
+<style>
+  .hero-splash {
+    display: flex;
+    height: 90vh; /* Full screen impact */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-splash__split {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: flex 0.5s ease;
+  }
+
+  .hero-splash__title {
+    font-size: {{ section.settings.title_size_desktop }}vw; /* Massive typography */
+    line-height: 0.8;
+    margin: 0;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+    text-shadow: 10px 10px 0 var(--color-brand-black);
+    z-index: 1;
+  }
+
+  /* Center content floating on top */
+  .hero-splash__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: {{ section.settings.image_size }}%;
+  }
+
+  .hero-splash__image {
+    width: 100%;
+    transform: rotate(5deg);
+    border-radius: 50%;
+    border: 5px solid var(--color-brand-black);
+  }
+  
+  .hero-splash__actions {
+    margin-top: -50px;
+    position: relative;
+    z-index: 11;
+  }
+
+  .hero-splash__tagline {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-splash__button {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .hero-splash {
+      flex-direction: column;
+    }
+    .hero-splash__title {
+      font-size: {{ section.settings.title_size_mobile }}vw;
+    }
+    .hero-splash__center {
+      width: calc({{ section.settings.image_size }}% * 2); /* Double the size on mobile */
+    }
+  }
+</style>

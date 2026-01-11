@@ -1,0 +1,141 @@
+{% schema %}
+{
+  "name": "Product Showcase",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Available Treats"
+    },
+    {
+      "type": "range",
+      "id": "min_column_width",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Minimum Card Width",
+      "default": 280
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Spiced Hummus"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "A spicy kick to a classic."
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Card Color",
+          "default": "#FFFBF0"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="section-content-wrapper page-width">
+  <h2 class="font-heading text-center text-pop-outline" style="font-size: 3rem; margin-bottom: 2rem; color: var(--color-brand-pink);">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="product-grid">
+    {% for block in section.blocks %}
+      <div class="product-card-pop box-pop" style="background-color: {{ block.settings.bg_color }}" {{ block.shopify_attributes }}>
+        <div class="product-card-pop__image-wrapper">
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | image_url: width: 400 }}" class="product-card-pop__image" width="400" height="400" loading="lazy">
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'product-card-pop__image' }}
+          {% endif %}
+        </div>
+        <div class="product-card-pop__info">
+          <h3 class="font-heading" style="margin: 0;">{{ block.settings.name }}</h3>
+          <p class="font-body" style="margin: 0.5rem 0;">{{ block.settings.desc }}</p>
+        </div>
+        <button class="product-card-pop__btn font-heading">Add +</button>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax({{ section.settings.min_column_width }}px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .product-card-pop {
+    padding: 1.5rem;
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: visible; /* For the pop effect */
+  }
+
+  .product-card-pop__image-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .product-card-pop:hover .product-card-pop__image-wrapper {
+    transform: scale(1.1) rotate(5deg) translateY(-10px);
+  }
+
+  .product-card-pop__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(5px 5px 0 rgba(0,0,0,0.2));
+  }
+
+  .product-card-pop__btn {
+    margin-top: auto;
+    background: var(--color-brand-black);
+    color: var(--color-brand-cream);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .product-card-pop__btn:hover {
+    transform: scale(1.1);
+    background: var(--color-brand-red);
+  }
+</style>

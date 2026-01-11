@@ -1,0 +1,143 @@
+{% schema %}
+{
+  "name": "Story Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#E63E6D"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFBF0"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "label": "Animation Speed",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 1,
+      "max": 10,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Font Size",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Icon Width",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "message",
+          "label": "Message",
+          "default": "SUGAR & SPICE"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Separator"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story Marquee",
+      "blocks": [
+        { "type": "text" },
+        { "type": "text", "settings": { "message": "ALL THINGS NICE" } },
+        { "type": "text", "settings": { "message": "LEVANTINE LOVE" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="story-marquee border-y" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; transform: rotate({{ section.settings.rotation }}deg); width: 105%; margin-left: -2.5%;">
+  <div class="story-marquee__content" style="animation-duration: {{ section.settings.speed }}s">
+    <!-- Duplicate content 4 times to ensure smooth infinite loop on wide screens -->
+    {% for i in (1..4) %}
+      <div class="story-marquee__track">
+        {% for block in section.blocks %}
+          <span class="story-marquee__item font-heading text-pop-shadow" {{ block.shopify_attributes }}>
+            {{ block.settings.message }}
+            {% if block.settings.icon %}
+               <img src="{{ block.settings.icon | image_url: width: section.settings.icon_width }}" class="story-marquee__icon" width="{{ section.settings.icon_width }}" height="{{ section.settings.icon_width }}" loading="lazy" style="width: {{ section.settings.icon_width }}px; height: auto;">
+            {% else %}
+               <span class="story-marquee__bullet">•</span>
+            {% endif %}
+          </span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .story-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 1rem 0;
+    z-index: 5;
+    border-top: 4px solid var(--color-brand-black);
+    border-bottom: 4px solid var(--color-brand-black);
+  }
+
+  .story-marquee__content {
+    display: flex;
+    animation: marquee linear infinite;
+  }
+
+  .story-marquee__track {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 100%;
+  }
+
+  .story-marquee__item {
+    font-size: {{ section.settings.font_size }}rem;
+    padding: 0 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .story-marquee__bullet {
+    color: var(--color-brand-black);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+</style>

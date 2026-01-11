@@ -1,0 +1,50 @@
+<div class="brand-logo-wrapper {% if class %}{{ class }}{% endif %}">
+  <svg viewBox="0 0 100 100" class="brand-logo-svg" xmlns="http://www.w3.org/2000/svg">
+    <!-- The Ampersand Shape -->
+    <path 
+      d="M30,50 Q20,40 30,30 Q40,20 50,30 Q60,40 50,50 L30,70 Q20,80 30,90 Q40,100 50,90 L70,70" 
+      fill="none" 
+      stroke="var(--color-brand-pink)" 
+      stroke-width="12" 
+      stroke-linecap="round"
+      class="logo-path-pink"
+    />
+    <path 
+      d="M70,50 Q80,40 70,30 Q60,20 50,30 Q40,40 50,50 L70,70 Q80,80 70,90 Q60,100 50,90 L30,70" 
+      fill="none" 
+      stroke="var(--color-brand-yellow)" 
+      stroke-width="12" 
+      stroke-linecap="round"
+      class="logo-path-yellow"
+    />
+  </svg>
+</div>
+
+<style>
+  .brand-logo-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* Simple "Breathing" Animation */
+  .logo-animate .brand-logo-svg {
+    animation: logo-float 3s ease-in-out infinite;
+  }
+  
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+  }
+
+  /* Hover effect for paths */
+  .brand-logo-wrapper:hover .logo-path-pink {
+    stroke: var(--color-brand-yellow);
+    transition: stroke 0.3s ease;
+  }
+  
+  .brand-logo-wrapper:hover .logo-path-yellow {
+    stroke: var(--color-brand-pink);
+    transition: stroke 0.3s ease;
+  }
+</style>

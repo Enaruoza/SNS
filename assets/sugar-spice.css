@@ -1,0 +1,54 @@
+/* Sugar & Spice Pop Art Utilities */
+
+.font-heading {
+    font-family: var(--font-heading-family) !important;
+}
+
+.font-body {
+    font-family: var(--font-body-family) !important;
+}
+
+/* Pop Art Box Style */
+.box-pop {
+    border: var(--pop-border-width) solid var(--color-brand-black);
+    box-shadow: var(--pop-shadow-offset) var(--pop-shadow-offset) 0 var(--color-brand-black);
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-black);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box-pop:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: calc(var(--pop-shadow-offset) + 2px) calc(var(--pop-shadow-offset) + 2px) 0 var(--color-brand-black);
+}
+
+.box-pop--pink {
+    background-color: var(--color-brand-pink);
+    color: var(--color-brand-cream);
+}
+
+.box-pop--yellow {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-brand-black);
+}
+
+/* Halftone Background Pattern */
+.bg-halftone {
+    background-image: radial-gradient(var(--color-brand-black) 20%, transparent 20%),
+        radial-gradient(var(--color-brand-black) 20%, transparent 20%);
+    background-color: var(--color-brand-yellow);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    opacity: 0.1;
+}
+
+/* Typography Utilities */
+.text-pop-outline {
+    -webkit-text-stroke: 2px var(--color-brand-black);
+    color: var(--color-brand-cream);
+    font-weight: 800;
+}
+
+.text-pop-shadow {
+    text-shadow: 3px 3px 0 var(--color-brand-black);
+}

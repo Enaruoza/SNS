@@ -1,0 +1,60 @@
+/* Sugar & Spice Animations */
+
+/* 1. Global Page Loader (Optional, can be added to theme.liquid) */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--color-brand-yellow);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fade-out 0.5s ease-out 2s forwards;
+    pointer-events: none;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* 2. Scroll Reveal Utility */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Button "Pow!" Click Effect */
+.btn-pow:active {
+    transform: scale(0.95) !important;
+    box-shadow: 0 0 0 transparent !important;
+}
+
+/* 4. Hover Wiggle */
+.hover-wiggle:hover {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+}
