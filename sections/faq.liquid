@@ -1,0 +1,124 @@
+{% schema %}
+{
+  "name": "SNS - FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Rarely Asked Questions"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#E63E6D"
+    },
+     {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFBF0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Is it spicy?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Just the right amount!</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SNS - FAQ",
+      "blocks": [
+        { "type": "question" },
+        { "type": "question" },
+        { "type": "question" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="faq-section section-content-wrapper page-width" style="background-color: {{ section.settings.bg_color }}; color: {{ section.settings.text_color }}; padding: 4rem 2rem; border-top: 4px solid var(--color-brand-black); border-bottom: 4px solid var(--color-brand-black);">
+  <h2 class="font-heading text-center text-pop-outline" style="font-size: 3rem; margin-bottom: 3rem;">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="faq-grid">
+    {% for block in section.blocks %}
+      <details class="faq-item box-pop" style="background: #fff; color: var(--color-brand-black);">
+        <summary class="faq-summary font-heading">
+          {{ block.settings.question }}
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-content font-body">
+          {{ block.settings.answer }}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item[open] {
+    box-shadow: 8px 8px 0 var(--color-brand-black);
+    transform: translate(-4px, -4px);
+  }
+
+  .faq-summary {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-size: 1.25rem;
+  }
+  
+  .faq-summary::-webkit-details-marker { display: none; }
+
+  .faq-content {
+    padding: 0 1.5rem 1.5rem;
+    border-top: 2px dashed var(--color-brand-black);
+    padding-top: 1rem;
+  }
+
+  .faq-icon {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+</style>

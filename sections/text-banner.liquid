@@ -1,0 +1,90 @@
+{% schema %}
+{
+  "name": "SNS - Text Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Taste the Magic"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Subheading",
+      "default": "Authentic flavors, modern vibes."
+    },
+     {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SNS - Text Banner"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="text-banner box-pop" style="margin: 2rem; overflow: hidden; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;">
+  {% if section.settings.bg_image %}
+    {{ section.settings.bg_image | image_url: width: 1200 | image_tag: class: 'text-banner__bg', loading: 'lazy' }}
+  {% endif %}
+  
+  <div class="text-banner__overlay" style="background-color: {{ section.settings.overlay_color }}; opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+  
+  <div class="text-banner__content page-width">
+    <h2 class="font-heading text-pop-outline" style="font-size: 4rem; color: #fff; transform: rotate(-2deg);">{{ section.settings.title }}</h2>
+    <p class="font-body" style="font-size: 1.5rem; margin-top: 1rem; text-shadow: 2px 2px 0 #000;">{{ section.settings.text }}</p>
+    {% if section.settings.link %}
+      <a href="{{ section.settings.link }}" class="font-heading" style="display: inline-block; margin-top: 2rem; background: var(--color-brand-yellow); color: var(--color-brand-black); padding: 1rem 3rem; text-decoration: none; border: 3px solid #000; box-shadow: 5px 5px 0 #000;">
+        Explore
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .text-banner__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .text-banner__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .text-banner__content {
+    position: relative;
+    z-index: 2;
+  }
+</style>
