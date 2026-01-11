@@ -82,6 +82,12 @@
           "default": "SUGAR"
         },
         {
+          "type": "font_picker",
+          "id": "font",
+          "label": "Font",
+          "default": "helvetica_n9"
+        },
+        {
           "type": "range",
           "id": "size_desktop",
           "min": 5,
@@ -136,6 +142,12 @@
           "default": "AND ALL THINGS NICE"
         },
         {
+          "type": "font_picker",
+          "id": "font",
+          "label": "Font",
+          "default": "helvetica_n4"
+        },
+        {
           "type": "color",
           "id": "text_color",
           "label": "Text Color",
@@ -180,6 +192,12 @@
           "default": "ORDER NOW"
         },
         {
+          "type": "font_picker",
+          "id": "font",
+          "label": "Font",
+          "default": "helvetica_n7"
+        },
+        {
           "type": "url",
           "id": "link",
           "label": "Button Link"
@@ -195,6 +213,53 @@
           "id": "text_color",
           "label": "Text Color",
           "default": "#121212"
+        }
+      ]
+    },
+    {
+      "type": "comic_image",
+      "name": "Sticker / Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (Transparent PNG)"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 50,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "label": "Width (Desktop)",
+          "default": 200
+        },
+        {
+          "type": "range",
+          "id": "width_mobile",
+          "min": 50,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Width (Mobile)",
+          "default": 150
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "min": -180,
+          "max": 180,
+          "step": 5,
+          "unit": "deg",
+          "label": "Rotation",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "drop_shadow",
+          "label": "Add Pop Shadow",
+          "default": true
         }
       ]
     },
@@ -248,10 +313,14 @@
           {%- when 'heading' -%}
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               <h2 class="comic-3d-text" 
-                  style="--text-color: {{ block.settings.text_color }}; --shadow-color: {{ block.settings.shadow_color }}; 
-                         --font-size-desktop: {{ block.settings.size_desktop }}vw; 
-                         --font-size-mobile: {{ block.settings.size_mobile }}vw;
-                         --rotation: {{ block.settings.rotation }}deg;">
+                  style="
+                    font-family: {{ block.settings.font.family }}, {{ block.settings.font.fallback_families }};
+                    font-weight: {{ block.settings.font.weight }};
+                    font-style: {{ block.settings.font.style }};
+                    --text-color: {{ block.settings.text_color }}; --shadow-color: {{ block.settings.shadow_color }}; 
+                    --font-size-desktop: {{ block.settings.size_desktop }}vw; 
+                    --font-size-mobile: {{ block.settings.size_mobile }}vw;
+                    --rotation: {{ block.settings.rotation }}deg;">
                 {{ block.settings.text }}
               </h2>
             </div>
@@ -259,9 +328,13 @@
           {%- when 'tagline' -%}
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               <p class="comic-stroke-text" 
-                 style="--text-color: {{ block.settings.text_color }}; --stroke-color: {{ block.settings.stroke_color }};
-                        --font-size-desktop: {{ block.settings.size_desktop }}rem;
-                        --font-size-mobile: {{ block.settings.size_mobile }}rem;">
+                 style="
+                    font-family: {{ block.settings.font.family }}, {{ block.settings.font.fallback_families }};
+                    font-weight: {{ block.settings.font.weight }};
+                    font-style: {{ block.settings.font.style }};
+                    --text-color: {{ block.settings.text_color }}; --stroke-color: {{ block.settings.stroke_color }};
+                    --font-size-desktop: {{ block.settings.size_desktop }}rem;
+                    --font-size-mobile: {{ block.settings.size_mobile }}rem;">
                 {{ block.settings.text }}
               </p>
             </div>
@@ -270,16 +343,41 @@
             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
               {% if block.settings.link %}
                 <a href="{{ block.settings.link }}" class="hero-comic__button box-pop" 
-                   style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+                   style="
+                      font-family: {{ block.settings.font.family }}, {{ block.settings.font.fallback_families }};
+                      font-weight: {{ block.settings.font.weight }};
+                      background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
                   {{ block.settings.label }}
                 </a>
               {% else %}
                  <span class="hero-comic__button box-pop" 
-                   style="background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
+                   style="
+                      font-family: {{ block.settings.font.family }}, {{ block.settings.font.fallback_families }};
+                      font-weight: {{ block.settings.font.weight }};
+                      background: {{ block.settings.bg_color }}; color: {{ block.settings.text_color }};">
                   {{ block.settings.label }}
                 </span>
               {% endif %}
             </div>
+
+          {%- when 'comic_image' -%}
+             <div class="hero-comic__block-item" {{ block.shopify_attributes }}>
+                {% if block.settings.image %}
+                  <img src="{{ block.settings.image | image_url: width: 1000 }}" 
+                       alt="Sticker"
+                       class="hero-comic__sticker {% if block.settings.drop_shadow %}box-pop{% endif %}"
+                       style="
+                          --sticker-width-desktop: {{ block.settings.width_desktop }}px;
+                          --sticker-width-mobile: {{ block.settings.width_mobile }}px;
+                          transform: rotate({{ block.settings.rotation }}deg);
+                       "
+                       loading="lazy">
+                {% else %}
+                   <div style="background: #fff; border: 2px dashed #000; padding: 1rem; transform: rotate({{ block.settings.rotation }}deg);">
+                     <p style="margin:0; font-family: monospace;">[Add Image]</p>
+                   </div>
+                {% endif %}
+             </div>
 
           {%- when 'spacer' -%}
             <div class="hero-comic__spacer" style="height: {{ block.settings.height }}px;" {{ block.shopify_attributes }}></div>
@@ -326,7 +424,7 @@
     align-items: center;
     justify-content: center;
     height: var(--desktop-height);
-    background-color: var(--burst-right); /* Corrected sync */
+    background-color: var(--burst-right);
   }
 
   /* --- Backgrounds --- */
@@ -382,11 +480,11 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   /* --- Block Styles --- */
   .comic-3d-text {
-    font-family: var(--font-heading-family);
     margin: 0;
     line-height: 0.9;
     transform: rotate(var(--rotation));
@@ -400,7 +498,6 @@
   }
 
   .comic-stroke-text {
-    font-family: var(--font-heading-family);
     font-size: var(--font-size-desktop);
     color: var(--text-color);
     text-transform: uppercase;
@@ -412,7 +509,6 @@
   }
 
   .hero-comic__button {
-    font-family: var(--font-heading-family);
     padding: 1.5rem 4rem;
     font-size: 2rem;
     text-decoration: none;
@@ -431,6 +527,13 @@
     box-shadow: 9px 9px 0 var(--color-brand-black);
   }
 
+  .hero-comic__sticker {
+    width: var(--sticker-width-desktop);
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+
   /* --- Image Overlay --- */
   .hero-comic__image-overlay {
     position: absolute;
@@ -438,7 +541,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 5; /* Behind blocks but above background */
+    z-index: 5;
     opacity: 0.8;
   }
 
@@ -477,7 +580,7 @@
     50% { transform: scale(1.1) rotate(5deg); }
   }
 
-  /* --- Mobile Layout (Better Dog Shit Prevention) --- */
+  /* --- Mobile Layout --- */
   @media (max-width: 768px) {
     .hero-comic-burst {
       height: var(--mobile-height);
@@ -492,7 +595,7 @@
     }
 
     .hero-comic__blocks {
-      gap: 1.5rem; /* More breathing room on mobile */
+      gap: 1.5rem;
     }
 
     .comic-3d-text {
@@ -509,6 +612,10 @@
     .hero-comic__button {
       padding: 1.2rem 3rem;
       font-size: 1.5rem;
+    }
+
+    .hero-comic__sticker {
+      width: var(--sticker-width-mobile);
     }
 
     .hero-comic__image-overlay {
