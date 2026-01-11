@@ -324,13 +324,7 @@
         "text_wtencU": {
           "type": "text",
           "settings": {
-            "message": "SUGAR"
-          }
-        },
-        "text_i9P9XU": {
-          "type": "text",
-          "settings": {
-            "message": "SPICE"
+            "message": "SUGAR AND SPICE"
           }
         },
         "text_7RfznA": {
@@ -338,18 +332,24 @@
           "settings": {
             "message": "AND ALL THINGS NICE"
           }
+        },
+        "text_gDMVJP": {
+          "type": "text",
+          "settings": {
+            "message": "FLAVOR LIKE YOU'VE NEVER TASTED"
+          }
         }
       },
       "block_order": [
         "text_wtencU",
-        "text_i9P9XU",
-        "text_7RfznA"
+        "text_7RfznA",
+        "text_gDMVJP"
       ],
       "name": "Story Marquee",
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#ffc72c",
-        "speed": 30,
+        "speed": 15,
         "marquee_font": "sans_serif_n7",
         "font_size": 3,
         "enable_icons": true,
