@@ -77,14 +77,14 @@
   ],
   "presets": [
     {
-      "name": "Product Showcase"
+      "name": "SNS - Product Showcase"
     }
   ]
 }
 {% endschema %}
 
-<div class="product-showcase-wrapper {% unless section.settings.full_width %}page-width{% endunless %} section-content-wrapper">
-  <h2 class="font-heading text-center text-pop-outline" style="font-size: 3rem; margin-bottom: 2rem; color: var(--color-brand-pink);">
+<div class="product-showcase-wrapper {% unless section.settings.full_width %}page-width{% endunless %} section-content-wrapper" style="padding: 4rem 0;">
+  <h2 class="font-heading text-center text-pop-outline" style="font-size: 3.5rem; margin-bottom: 3rem; color: var(--color-brand-pink);">
     {{ section.settings.title }}
   </h2>
 
@@ -99,10 +99,10 @@
           {% endif %}
         </div>
         <div class="product-card-pop__info">
-          <h3 class="font-heading" style="margin: 0;">{{ block.settings.name }}</h3>
-          <p class="font-body" style="margin: 0.5rem 0;">{{ block.settings.desc }}</p>
+          <h3 class="font-heading" style="font-size: 1.8rem; margin: 1rem 0;">{{ block.settings.name }}</h3>
+          <p class="font-body" style="font-size: 1rem; margin-bottom: 1.5rem;">{{ block.settings.desc }}</p>
+          <button class="product-card-pop__btn font-heading">Add +</button>
         </div>
-        <button class="product-card-pop__btn font-heading">Add +</button>
       </div>
     {% endfor %}
   </div>
@@ -111,67 +111,64 @@
 <style>
   .product-grid {
     display: grid;
-    /* Desktop default */
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
-    gap: 2rem;
-    padding: 2rem 0;
+    gap: 2.5rem;
+    padding: 0 1rem;
   }
 
   .product-card-pop {
-    padding: 1.5rem;
-    border-radius: 12px;
-    position: relative;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    border-radius: 15px;
     align-items: center;
     text-align: center;
-    overflow: visible; /* For the pop effect */
-    max-width: 400px; /* Prevent giant single cards */
+    transition: transform 0.3s;
+    max-width: 450px;
     margin: 0 auto;
     width: 100%;
   }
 
-  .product-card-pop__image-wrapper {
-    width: 100%;
-    aspect-ratio: 1;
-    margin-bottom: 1rem;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  .product-card-pop:hover {
+    transform: translateY(-10px) rotate(2deg);
   }
 
-  .product-card-pop:hover .product-card-pop__image-wrapper {
-    transform: scale(1.1) rotate(5deg) translateY(-10px);
+  .product-card-pop__image-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
   }
 
   .product-card-pop__image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
-    filter: drop-shadow(5px 5px 0 rgba(0,0,0,0.2));
   }
 
   .product-card-pop__btn {
-    margin-top: auto;
     background: var(--color-brand-black);
-    color: var(--color-brand-cream);
+    color: #fff;
     border: none;
-    padding: 0.5rem 1.5rem;
+    padding: 0.8rem 2rem;
     border-radius: 50px;
-    font-size: 1.2rem;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: all 0.2s;
   }
 
   .product-card-pop__btn:hover {
     transform: scale(1.1);
     background: var(--color-brand-red);
   }
+
   @media (max-width: 768px) {
     .product-grid {
       grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
       gap: 1rem;
     }
     .product-card-pop {
-      padding: 1rem; /* Compact padding on mobile */
+      padding: 1rem;
+    }
+    .product-card-pop__info h3 {
+      font-size: 1.2rem !important;
     }
     .product-card-pop__btn {
       padding: 0.5rem 1rem;

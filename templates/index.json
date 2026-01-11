@@ -6,86 +6,153 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "hero_splash_6MreJb": {
+      "type": "hero-splash",
+      "name": "Hero Splash",
+      "settings": {
+        "heading_sugar": "SUGAR",
+        "heading_spice": "SPICE",
+        "tagline": "AND ALL THINGS NICE",
+        "button_link": "",
+        "button_label": "Order Now",
+        "title_size_desktop": 15,
+        "title_size_mobile": 25,
+        "image_size": 25
+      }
+    },
+    "story_marquee_VkHByM": {
+      "type": "story-marquee",
       "blocks": {
-        "text_YLPk4p": {
+        "text_4kyDBd": {
           "type": "text",
-          "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "message": "SUGAR & SPICE"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "text_Pf7h4B": {
+          "type": "text",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "message": "ALL THINGS NICE"
+          }
+        },
+        "text_rpKKx8": {
+          "type": "text",
+          "settings": {
+            "message": "LEVANTINE LOVE"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "text_4kyDBd",
+        "text_Pf7h4B",
+        "text_rpKKx8"
       ],
-      "name": "t:names.hero",
+      "name": "Story Marquee",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "background_color": "#E63E6D",
+        "text_color": "#FFFBF0",
+        "speed": 30,
+        "font_size": 3,
+        "icon_width": 50
+      }
+    },
+    "product_showcase_rLbRbT": {
+      "type": "product-showcase",
+      "blocks": {
+        "product_item_nPf74B": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_FM4wFf": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_jHKxTA": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        },
+        "product_item_jdKfB8": {
+          "type": "product_item",
+          "settings": {
+            "name": "Spiced Hummus",
+            "desc": "A spicy kick to a classic.",
+            "bg_color": "#FFFBF0"
+          }
+        }
+      },
+      "block_order": [
+        "product_item_nPf74B",
+        "product_item_FM4wFf",
+        "product_item_jHKxTA",
+        "product_item_jdKfB8"
+      ],
+      "name": "Product Showcase",
+      "settings": {
+        "title": "Available Treats",
+        "min_column_width": 280
+      }
+    },
+    "feature_split_k8Vf4x": {
+      "type": "feature-split",
+      "name": "SNS - Feature Split",
+      "settings": {
+        "layout": "left",
+        "title": "Our Story",
+        "content": "<p>Tell your brand story here.</p>",
+        "button_label": "Learn More",
+        "button_link": "",
+        "bg_color": "#FFFFFF"
+      }
+    },
+    "icon_columns_QCN6hy": {
+      "type": "icon-columns",
+      "blocks": {
+        "column_4CDczF": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        },
+        "column_RpwJ9w": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        },
+        "column_6Yn3xf": {
+          "type": "column",
+          "settings": {
+            "title": "Fresh Ingredients",
+            "text": "<p>Only the best for you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_4CDczF",
+        "column_RpwJ9w",
+        "column_6Yn3xf"
+      ],
+      "name": "SNS - Icon Columns",
+      "settings": {
+        "title": "Why We Rock",
+        "bg_color": "#FFFBF0"
       }
     },
     "product_list_fa6P9H": {
@@ -261,6 +328,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "collection": "all",
@@ -284,7 +352,11 @@
     }
   },
   "order": [
-    "hero_jVaWmY",
+    "hero_splash_6MreJb",
+    "story_marquee_VkHByM",
+    "product_showcase_rLbRbT",
+    "feature_split_k8Vf4x",
+    "icon_columns_QCN6hy",
     "product_list_fa6P9H"
   ]
 }

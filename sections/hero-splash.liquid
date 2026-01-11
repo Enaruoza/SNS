@@ -39,6 +39,16 @@
       "default": "Order Now"
     },
     {
+      "type": "range",
+      "id": "image_size",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Center Image Size",
+      "default": 40
+    },
+    {
       "type": "header",
       "content": "Desktop Layout"
     },
@@ -70,7 +80,7 @@
       "type": "range",
       "id": "title_size_mobile",
       "min": 10,
-      "max": 30,
+      "max": 50,
       "step": 1,
       "unit": "vw",
       "label": "Mobile Title Size",
@@ -127,7 +137,7 @@
   </div>
 
   <div class="hero-splash__split hero-splash__right" style="background-color: var(--color-brand-cream)">
-    <h1 class="hero-splash__title font-heading" style="color: var(--color-brand-yellow); -webkit-text-stroke: 4px var(--color-brand-black);">
+    <h1 class="hero-splash__title font-heading" style="color: var(--color-brand-yellow)">
       {{ section.settings.heading_spice }}
     </h1>
   </div>
@@ -136,11 +146,11 @@
 <style>
   .hero-splash {
     display: flex;
-    height: {{ section.settings.section_height_desktop }}vh; /* Full screen impact */
+    height: {{ section.settings.section_height_desktop }}vh;
     position: relative;
     overflow: hidden;
     width: 100vw;
-    margin-left: calc(50% - 50vw); /* Force Full Width Breakout */
+    margin-left: calc(50% - 50vw);
   }
 
   .hero-splash__split {
@@ -152,16 +162,18 @@
   }
 
   .hero-splash__title {
-    font-size: {{ section.settings.title_size_desktop }}vw; /* Massive typography */
+    font-size: {{ section.settings.title_size_desktop }}vw;
     line-height: 0.8;
     margin: 0;
     text-transform: uppercase;
     transform: rotate(-5deg);
     text-shadow: 10px 10px 0 var(--color-brand-black);
-    z-index: 1;
+    -webkit-text-stroke: 4px var(--color-brand-black);
+    z-index: 2;
+    position: relative;
+    white-space: nowrap;
   }
 
-  /* Center content floating on top */
   .hero-splash__center {
     position: absolute;
     top: 50%;
@@ -170,28 +182,35 @@
     z-index: 10;
     text-align: center;
     width: {{ section.settings.image_size }}%;
+    pointer-events: none;
+  }
+
+  .hero-splash__image-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .hero-splash__image {
     width: 100%;
+    height: auto;
     transform: rotate(5deg);
     border-radius: 50%;
     border: 5px solid var(--color-brand-black);
   }
   
-    margin-top: -50px;
+  .hero-splash__actions {
+    pointer-events: auto;
+    margin-top: -30px;
     position: relative;
     z-index: 11;
-  }
-  
-  .hero-splash__title span {
-      display: inline-block;
   }
 
   .hero-splash__tagline {
     font-size: 2rem;
     margin-bottom: 2rem;
     letter-spacing: 2px;
+    color: #fff;
   }
 
   .hero-splash__button {
@@ -206,30 +225,32 @@
     .hero-splash {
       flex-direction: column;
       height: {{ section.settings.section_height_mobile }}vh;
+      margin-left: 0;
+      width: 100%;
     }
     .hero-splash__title {
       font-size: {{ section.settings.title_size_mobile }}vw;
-      white-space: normal; /* Allow wrapping on mobile */
+      white-space: normal;
       word-break: break-word;
     }
     .hero-splash__center {
       position: relative;
       width: 100%;
-      height: 40%; /* Dedicate space for image */
+      height: auto;
       top: 0;
       left: 0;
       transform: none;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
+      margin-top: -20vh; /* Pull up to overlap slightly for style */
     }
     .hero-splash__split {
-      flex: 0 0 30%; /* Reduce height of text areas on mobile */
+      flex: 0 0 35%;
     }
     .hero-splash__image-wrapper {
-       width: 200px; /* Fixed reasonable size for mobile */
-       margin: 0 auto;
+       width: 250px;
     }
   }
 </style>
