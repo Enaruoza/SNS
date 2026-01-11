@@ -232,20 +232,33 @@
         },
         "spacer_FqcyVc": {
           "type": "spacer",
+          "disabled": true,
           "settings": {
             "height": 20
           }
         },
         "spacer_Unikqj": {
           "type": "spacer",
+          "disabled": true,
           "settings": {
             "height": 20
           }
         },
         "spacer_YdCGhh": {
           "type": "spacer",
+          "disabled": true,
           "settings": {
             "height": 20
+          }
+        },
+        "comic_image_zCnWpp": {
+          "type": "comic_image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_11.png",
+            "width_desktop": 200,
+            "width_mobile": 150,
+            "rotation": 0,
+            "drop_shadow": false
           }
         },
         "heading_hmadEi": {
@@ -289,6 +302,7 @@
         "spacer_FqcyVc",
         "spacer_Unikqj",
         "spacer_YdCGhh",
+        "comic_image_zCnWpp",
         "heading_hmadEi",
         "spacer_EfLVwn",
         "spacer_yhDBgw",
@@ -310,33 +324,26 @@
         "text_wtencU": {
           "type": "text",
           "settings": {
-            "message": "SUGAR & SPICE"
+            "message": "SUGAR"
           }
         },
         "text_i9P9XU": {
           "type": "text",
           "settings": {
-            "message": "& ALL THINGS NICE"
+            "message": "SPICE"
           }
         },
         "text_7RfznA": {
           "type": "text",
           "settings": {
-            "message": "SYRIAN FLAVOURS. MADE FOR BOSNIA."
-          }
-        },
-        "text_KUUFYz": {
-          "type": "text",
-          "settings": {
-            "message": "LEVANTINE LOVE"
+            "message": "AND ALL THINGS NICE"
           }
         }
       },
       "block_order": [
         "text_wtencU",
         "text_i9P9XU",
-        "text_7RfznA",
-        "text_KUUFYz"
+        "text_7RfznA"
       ],
       "name": "Story Marquee",
       "settings": {
