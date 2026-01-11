@@ -374,7 +374,7 @@
                 {% if block.settings.image %}
                   <img src="{{ block.settings.image | image_url: width: 1000 }}" 
                        alt="Sticker"
-                       class="hero-comic__sticker {% if block.settings.drop_shadow %}box-pop{% endif %}"
+                       class="hero-comic__sticker {% if block.settings.drop_shadow %}box-pop{% else %}sticker-no-border{% endif %}"
                        style="
                           --sticker-width-desktop: {{ block.settings.width_desktop }}px;
                           --sticker-width-mobile: {{ block.settings.width_mobile }}px;

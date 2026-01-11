@@ -27,6 +27,12 @@
       "default": 30
     },
     {
+      "type": "font_picker",
+      "id": "marquee_font",
+      "label": "Font",
+      "default": "helvetica_n7"
+    },
+    {
       "type": "range",
       "id": "font_size",
       "min": 1,
@@ -35,6 +41,12 @@
       "unit": "rem",
       "label": "Font Size",
       "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_icons",
+      "label": "Show Icons",
+      "default": true
     },
     {
       "type": "range",
@@ -54,7 +66,7 @@
       "step": 4,
       "unit": "px",
       "label": "Top Padding",
-      "default": 0
+      "default": 36
     },
     {
       "type": "range",
@@ -64,7 +76,7 @@
       "step": 4,
       "unit": "px",
       "label": "Bottom Padding",
-      "default": 0
+      "default": 36
     }
   ],
   "blocks": [
@@ -88,7 +100,7 @@
   ],
   "presets": [
     {
-      "name": "Story Marquee",
+      "name": "SNS - Story Marquee",
       "blocks": [
         { "type": "text" },
         { "type": "text", "settings": { "message": "ALL THINGS NICE" } },
@@ -99,35 +111,60 @@
 }
 {% endschema %}
 
-<div class="story-marquee border-y" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}; transform: rotate({{ section.settings.rotation }}deg); width: 99.5vw; margin-left: calc(50% - 50vw);">
-  <div class="story-marquee__content" style="animation-duration: {{ section.settings.speed }}s">
-    <!-- Duplicate content 12 times to ensure smooth infinite loop on wide screens -->
-    {% for i in (1..12) %}
-      <div class="story-marquee__track">
-        {% for block in section.blocks %}
-          <span class="story-marquee__item font-heading text-pop-shadow" {{ block.shopify_attributes }}>
-            {{ block.settings.message }}
-            {% if block.settings.icon %}
-               <img src="{{ block.settings.icon | image_url: width: section.settings.icon_width }}" class="story-marquee__icon" width="{{ section.settings.icon_width }}" height="{{ section.settings.icon_width }}" loading="lazy" style="width: {{ section.settings.icon_width }}px; height: auto;">
-            {% else %}
-               <span class="story-marquee__bullet">•</span>
-            {% endif %}
-          </span>
-        {% endfor %}
-      </div>
-    {% endfor %}
+{% style %}
+  {{ section.settings.marquee_font | font_face: font_display: 'swap' }}
+{% endstyle %}
+
+<div class="story-marquee-wrapper" 
+     style="background-color: {{ section.settings.background_color }}; 
+            padding-top: {{ section.settings.padding_top }}px; 
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+            overflow: hidden;">
+            
+  <div class="story-marquee border-y" 
+       style="border-top: 4px solid var(--color-brand-black); border-bottom: 4px solid var(--color-brand-black);
+              color: {{ section.settings.text_color }}; 
+              width: 100vw; margin-left: calc(50% - 50vw);">
+              
+    <div class="story-marquee__content" style="animation-duration: {{ section.settings.speed }}s">
+      <!-- Duplicate content 20 times to ensure smooth infinite loop on ultra-wide screens -->
+      {% for i in (1..20) %}
+        <div class="story-marquee__track">
+          {% for block in section.blocks %}
+            <span class="story-marquee__item text-pop-shadow" {{ block.shopify_attributes }}
+                  style="
+                    font-family: {{ section.settings.marquee_font.family }}, {{ section.settings.marquee_font.fallback_families }};
+                    font-weight: {{ section.settings.marquee_font.weight }};
+                    font-style: {{ section.settings.marquee_font.style }};
+                    font-size: {{ section.settings.font_size }}rem;
+                  ">
+              {{ block.settings.message }}
+              {% if section.settings.enable_icons %}
+                  {% if block.settings.icon %}
+                     <img src="{{ block.settings.icon | image_url: width: section.settings.icon_width }}" 
+                          class="story-marquee__icon" 
+                          width="{{ section.settings.icon_width }}" 
+                          height="{{ section.settings.icon_width }}" 
+                          loading="lazy" 
+                          style="width: {{ section.settings.icon_width }}px; height: auto;">
+                  {% else %}
+                     <span class="story-marquee__bullet" style="color: var(--color-brand-black);">★</span>
+                  {% endif %}
+              {% endif %}
+            </span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
 <style>
   .story-marquee {
-    overflow: hidden;
     white-space: nowrap;
     position: relative;
     padding: 1rem 0;
     z-index: 5;
-    border-top: 4px solid var(--color-brand-black);
-    border-bottom: 4px solid var(--color-brand-black);
   }
 
   .story-marquee__content {
@@ -139,21 +176,15 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    min-width: 100%;
   }
 
   .story-marquee__item {
-    font-size: {{ section.settings.font_size }}rem;
     padding: 0 2rem;
     font-weight: 800;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-
-  .story-marquee__bullet {
-    color: var(--color-brand-black);
   }
 
   @keyframes marquee {

@@ -11,6 +11,18 @@
       "default": "Why We Rock"
     },
     {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n7"
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body Font",
+      "default": "helvetica_n4"
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
@@ -55,27 +67,45 @@
 }
 {% endschema %}
 
-<div class="icon-columns section-content-wrapper page-width" style="background-color: {{ section.settings.bg_color }}; padding: 4rem 0;">
-  {% if section.settings.title != blank %}
-    <h2 class="font-heading text-center text-pop-outline" style="font-size: 2.5rem; margin-bottom: 3rem; color: var(--color-brand-black);">
-      {{ section.settings.title }}
-    </h2>
-  {% endif %}
+{% style %}
+  {{ section.settings.heading_font | font_face: font_display: 'swap' }}
+  {{ section.settings.body_font | font_face: font_display: 'swap' }}
+{% endstyle %}
 
-  <div class="icon-columns__grid">
-    {% for block in section.blocks %}
-      <div class="icon-columns__item text-center" {{ block.shopify_attributes }}>
-        <div class="icon-columns__icon-wrapper box-pop box-pop--yellow">
-          {% if block.settings.icon %}
-            {{ block.settings.icon | image_url: width: 200 | image_tag: class: 'icon-columns__icon', loading: 'lazy' }}
-          {% else %}
-             <span style="font-size: 3rem;">★</span>
-          {% endif %}
+<div class="icon-columns section-content-wrapper" 
+     style="background-color: {{ section.settings.bg_color }}; 
+            padding: 4rem 0;
+            width: 100vw; 
+            margin-left: calc(50% - 50vw);">
+            
+  <div class="page-width">
+    {% if section.settings.title != blank %}
+      <h2 class="text-center text-pop-outline" 
+          style="font-size: 3rem; margin-bottom: 3rem; color: var(--color-brand-black);
+                 font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class="icon-columns__grid">
+      {% for block in section.blocks %}
+        <div class="icon-columns__item text-center" {{ block.shopify_attributes }}>
+          <div class="icon-columns__icon-wrapper box-pop box-pop--yellow">
+            {% if block.settings.icon %}
+              {{ block.settings.icon | image_url: width: 200 | image_tag: class: 'icon-columns__icon', loading: 'lazy' }}
+            {% else %}
+               <span style="font-size: 3rem;">★</span>
+            {% endif %}
+          </div>
+          <h3 class="" style="margin: 1rem 0; font-family: {{ section.settings.heading_font.family }}, {{ section.settings.heading_font.fallback_families }};">
+            {{ block.settings.title }}
+          </h3>
+          <div class="" style="font-family: {{ section.settings.body_font.family }}, {{ section.settings.body_font.fallback_families }};">
+            {{ block.settings.text }}
+          </div>
         </div>
-        <h3 class="font-heading" style="margin: 1rem 0;">{{ block.settings.title }}</h3>
-        <div class="font-body">{{ block.settings.text }}</div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -85,6 +115,7 @@
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    padding: 0 1rem;
   }
 
   .icon-columns__item {
