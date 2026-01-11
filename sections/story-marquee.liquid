@@ -119,12 +119,16 @@
      style="background-color: {{ section.settings.background_color }}; 
             padding-top: {{ section.settings.padding_top }}px; 
             padding-bottom: {{ section.settings.padding_bottom }}px;
-            overflow: hidden;">
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);">
             
   <div class="story-marquee border-y" 
        style="border-top: 4px solid var(--color-brand-black); border-bottom: 4px solid var(--color-brand-black);
-              color: {{ section.settings.text_color }}; 
-              width: 100vw; margin-left: calc(50% - 50vw);">
+              color: {{ section.settings.text_color }};">
               
     <div class="story-marquee__content" style="animation-duration: {{ section.settings.speed }}s">
       <!-- Duplicate content 20 times to ensure smooth infinite loop on ultra-wide screens -->
