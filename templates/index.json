@@ -9,18 +9,21 @@
  */
 {
   "sections": {
-    "hero_splash_6MreJb": {
+    "hero_splash_93GnhY": {
       "type": "hero-splash",
       "name": "Hero Splash",
       "settings": {
         "heading_sugar": "SUGAR",
         "heading_spice": "SPICE",
         "tagline": "AND ALL THINGS NICE",
+        "image": "shopify://shop_images/e23cc35f-66e9-4160-9775-c557d99b4a16.png",
         "button_link": "",
         "button_label": "Order Now",
+        "image_size": 40,
         "title_size_desktop": 15,
+        "section_height_desktop": 100,
         "title_size_mobile": 25,
-        "image_size": 25
+        "section_height_mobile": 80
       }
     },
     "story_marquee_VkHByM": {
@@ -35,28 +38,23 @@
         "text_Pf7h4B": {
           "type": "text",
           "settings": {
-            "message": "ALL THINGS NICE"
-          }
-        },
-        "text_rpKKx8": {
-          "type": "text",
-          "settings": {
-            "message": "LEVANTINE LOVE"
+            "message": "AND ALL THINGS NICE"
           }
         }
       },
       "block_order": [
         "text_4kyDBd",
-        "text_Pf7h4B",
-        "text_rpKKx8"
+        "text_Pf7h4B"
       ],
       "name": "Story Marquee",
       "settings": {
-        "background_color": "#E63E6D",
-        "text_color": "#FFFBF0",
+        "background_color": "#e63e6d",
+        "text_color": "#fffbf0",
         "speed": 30,
         "font_size": 3,
-        "icon_width": 50
+        "icon_width": 50,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "product_showcase_rLbRbT": {
@@ -67,7 +65,7 @@
           "settings": {
             "name": "Spiced Hummus",
             "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
+            "bg_color": "#fffbf0"
           }
         },
         "product_item_FM4wFf": {
@@ -75,7 +73,7 @@
           "settings": {
             "name": "Spiced Hummus",
             "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
+            "bg_color": "#fffbf0"
           }
         },
         "product_item_jHKxTA": {
@@ -83,7 +81,7 @@
           "settings": {
             "name": "Spiced Hummus",
             "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
+            "bg_color": "#fffbf0"
           }
         },
         "product_item_jdKfB8": {
@@ -91,7 +89,7 @@
           "settings": {
             "name": "Spiced Hummus",
             "desc": "A spicy kick to a classic.",
-            "bg_color": "#FFFBF0"
+            "bg_color": "#fffbf0"
           }
         }
       },
@@ -104,7 +102,9 @@
       "name": "Product Showcase",
       "settings": {
         "title": "Available Treats",
-        "min_column_width": 280
+        "full_width": false,
+        "columns_desktop": 4,
+        "columns_mobile": "2"
       }
     },
     "feature_split_k8Vf4x": {
@@ -116,7 +116,7 @@
         "content": "<p>Tell your brand story here.</p>",
         "button_label": "Learn More",
         "button_link": "",
-        "bg_color": "#FFFFFF"
+        "bg_color": "#ffffff"
       }
     },
     "icon_columns_QCN6hy": {
@@ -152,7 +152,7 @@
       "name": "SNS - Icon Columns",
       "settings": {
         "title": "Why We Rock",
-        "bg_color": "#FFFBF0"
+        "bg_color": "#fffbf0"
       }
     },
     "product_list_fa6P9H": {
@@ -352,7 +352,7 @@
     }
   },
   "order": [
-    "hero_splash_6MreJb",
+    "hero_splash_93GnhY",
     "story_marquee_VkHByM",
     "product_showcase_rLbRbT",
     "feature_split_k8Vf4x",
