@@ -1,0 +1,115 @@
+{% schema %}
+{
+  "name": "SNS - Icon Columns",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Why We Rock"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFBF0"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon/Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Fresh Ingredients"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Only the best for you.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SNS - Icon Columns",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="icon-columns section-content-wrapper page-width" style="background-color: {{ section.settings.bg_color }}; padding: 4rem 0;">
+  {% if section.settings.title != blank %}
+    <h2 class="font-heading text-center text-pop-outline" style="font-size: 2.5rem; margin-bottom: 3rem; color: var(--color-brand-black);">
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+
+  <div class="icon-columns__grid">
+    {% for block in section.blocks %}
+      <div class="icon-columns__item text-center" {{ block.shopify_attributes }}>
+        <div class="icon-columns__icon-wrapper box-pop box-pop--yellow">
+          {% if block.settings.icon %}
+            {{ block.settings.icon | image_url: width: 200 | image_tag: class: 'icon-columns__icon', loading: 'lazy' }}
+          {% else %}
+             <span style="font-size: 3rem;">★</span>
+          {% endif %}
+        </div>
+        <h3 class="font-heading" style="margin: 1rem 0;">{{ block.settings.title }}</h3>
+        <div class="font-body">{{ block.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .icon-columns__grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .icon-columns__item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-columns__icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  .icon-columns__icon {
+    width: 60%;
+    height: auto;
+  }
+</style>
